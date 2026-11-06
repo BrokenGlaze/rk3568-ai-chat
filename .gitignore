@@ -1,0 +1,70 @@
+demo
+
+# 本地私密配置（含 API Key）
+chat_ds/include/api_key.h
+
+# IDE / AI 工具配置
+.continue/
+.settings/
+.vscode/
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+/build/
+/bin/
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+/Debug/
+
+# 第三方预编译库需随仓库提交，覆盖上方的 *.a / *.so 忽略规则
+!mytools/**/*.a
+!mytools/**/*.so
+!mytools/**/*.so.*
