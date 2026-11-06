@@ -68,3 +68,7 @@ dkms.conf
 !mytools/**/*.a
 !mytools/**/*.so
 !mytools/**/*.so.*
+
+# 系统杂项
+Thumbs.db
+.DS_Store
