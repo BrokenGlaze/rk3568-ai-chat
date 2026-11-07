@@ -27,8 +27,11 @@
 
 ![系统架构图](docs/images/architecture.svg)
 
-自底向上分为五层：RK3568 硬件 → 内核设备节点 → 图形框架与通信层 → 应用层 → DeepSeek 云端。
-紫色标出 AI 聊天的主链路：触摸输入经 LVGL 事件进入聊天界面，由 `chat_ds` 通过 TLS 请求云端，响应经 cJSON 解析后回填到消息列表。
+自底向上分为五层：RK3568 硬件 → 内核设备节点 → 图形/库与平台抽象 → 应用层 → DeepSeek 云端。
+
+- **双线程模型**：UI 主线程跑 LVGL 事件循环与界面渲染；`chat_ds` 在后台 pthread 中完成 HTTPS 请求与响应解析，通过互斥锁 + 条件变量解耦，界面全程不卡顿
+- **AI 聊天主链路（紫色）**：聊天界面提交消息 → `dp_chat.c` 异步队列 → `network_connect.c` 自行构造 HTTP 报文并经 OpenSSL TLS 发往云端 → 响应经 cJSON 流式解析拼接 → UI 线程 `dp_stream_poll()` 轮询取回并渲染
+- **平台抽象**：显示/输入后端与业务解耦，支持 fbdev、DRM-KMS、Wayland、X11、SDL2、GLFW3 六种显示后端，用 `-b` 参数切换
 
 ## 目录结构
 

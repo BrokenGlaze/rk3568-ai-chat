@@ -1,60 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 584" width="720" height="584" role="img" aria-label="RK3568 AI 聊天终端系统架构">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 880" width="900" height="880" role="img" aria-label="RK3568 AI 聊天终端系统架构（完整版）">
   <defs>
-    <marker id="arrowNeutral" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+    <marker id="an" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
       <path d="M1 1 L7 4 L1 7 Z" fill="#52525B"/>
     </marker>
-    <marker id="arrowBrand" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+    <marker id="ab" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
       <path d="M1 1 L7 4 L1 7 Z" fill="#4B3FE3"/>
     </marker>
   </defs>
 
-  <text x="40" y="28" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="16" font-weight="600" fill="#171717">系统架构</text>
+  <text x="40" y="30" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="600" fill="#171717">系统架构</text>
 
   <!-- 云端 -->
-  <rect x="190" y="48" width="340" height="64" rx="8" fill="#F7F7F8" stroke="#71717A" stroke-width="1.5"/>
-  <text x="210" y="79" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="14" font-weight="600" fill="#171717">DeepSeek API</text>
-  <text x="210" y="100" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="12" fill="#52525B">HTTPS / TLS · 云端大模型</text>
+  <rect x="250" y="50" width="400" height="64" rx="8" fill="#F7F7F8" stroke="#71717A" stroke-width="1.5"/>
+  <text x="450" y="78" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#171717">DeepSeek API（云端大模型）</text>
+  <text x="450" y="100" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#52525B">chat/completions 端点 · 流式响应 · 多模型</text>
 
   <!-- 应用层 -->
-  <rect x="40" y="140" width="640" height="80" rx="8" fill="#F2F7FF" stroke="#4B3FE3" stroke-width="1.5"/>
-  <text x="60" y="173" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="14" font-weight="600" fill="#1A1759">应用层</text>
-  <text x="60" y="197" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="12" fill="#52525B">登录 · 桌面 Launcher · DeepSeek 聊天 · 快捷设置</text>
+  <rect x="40" y="140" width="820" height="160" rx="8" fill="#FFFFFF" stroke="#D4D4D8" stroke-width="1.5"/>
+  <text x="60" y="168" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#171717">应用层 — UI 主线程（LVGL 事件循环 + 定时器）</text>
+  <rect x="60" y="182" width="170" height="100" rx="6" fill="#F7F7F8" stroke="#D4D4D8"/>
+  <text x="145" y="222" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#171717">登录界面</text>
+  <text x="145" y="244" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#71717A">login_UI · 密码验证</text>
+  <rect x="245" y="182" width="170" height="100" rx="6" fill="#F7F7F8" stroke="#D4D4D8"/>
+  <text x="330" y="222" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#171717">桌面 Launcher</text>
+  <text x="330" y="244" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#71717A">ui_home · App 启动器</text>
+  <rect x="430" y="182" width="250" height="100" rx="6" fill="#F2F7FF" stroke="#4B3FE3" stroke-width="1.5"/>
+  <text x="555" y="208" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#1A1759">AI 聊天 deepseek_chat_UI</text>
+  <text x="555" y="230" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">输入框 · 拼音输入法（pinyin/ 字典）</text>
+  <text x="555" y="250" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">模型切换 · 消息流式渲染</text>
+  <text x="555" y="270" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">dp_stream_poll() 轮询刷新</text>
+  <rect x="695" y="182" width="145" height="100" rx="6" fill="#F7F7F8" stroke="#D4D4D8"/>
+  <text x="767" y="222" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#171717">快捷设置</text>
+  <text x="767" y="244" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#71717A">下拉面板</text>
+  <text x="767" y="262" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#71717A">sysfs 调节背光</text>
 
-  <!-- 图形框架 -->
-  <rect x="40" y="252" width="300" height="80" rx="8" fill="#F7F7F8" stroke="#D4D4D8" stroke-width="1.5"/>
-  <text x="60" y="285" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="14" font-weight="600" fill="#171717">图形框架 lvgl/</text>
-  <text x="60" y="307" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="12" fill="#52525B">LVGL 9.x · FreeType · libjpeg-turbo</text>
+  <!-- chat_ds -->
+  <rect x="40" y="330" width="820" height="150" rx="8" fill="#F2F7FF" stroke="#4B3FE3" stroke-width="1.5"/>
+  <text x="60" y="358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#1A1759">聊天服务线程 — chat_ds/（后台 pthread，与 UI 解耦）</text>
+  <rect x="60" y="378" width="190" height="86" rx="6" fill="#FFFFFF" stroke="#4B3FE3"/>
+  <text x="155" y="412" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" fill="#1A1759">dp_chat.c</text>
+  <text x="155" y="432" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">异步请求队列</text>
+  <text x="155" y="450" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">mutex + cond 调度</text>
+  <rect x="265" y="378" width="210" height="86" rx="6" fill="#FFFFFF" stroke="#4B3FE3"/>
+  <text x="370" y="412" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" fill="#1A1759">network_connect.c</text>
+  <text x="370" y="432" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">自行构造 HTTP 请求</text>
+  <text x="370" y="450" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">OpenSSL TLS 加密</text>
+  <rect x="490" y="378" width="140" height="86" rx="6" fill="#FFFFFF" stroke="#4B3FE3"/>
+  <text x="560" y="412" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" fill="#1A1759">cJSON</text>
+  <text x="560" y="432" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">响应解析</text>
+  <text x="560" y="450" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">流式 delta 拼接</text>
+  <rect x="645" y="378" width="195" height="86" rx="6" fill="#FFFFFF" stroke="#4B3FE3"/>
+  <text x="742" y="412" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" fill="#1A1759">chat_history.c</text>
+  <text x="742" y="432" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">上下文环形缓冲</text>
+  <text x="742" y="450" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#52525B">最多保留 100 条</text>
 
-  <!-- 通信层 -->
-  <rect x="380" y="252" width="300" height="80" rx="8" fill="#F2F7FF" stroke="#4B3FE3" stroke-width="1.5"/>
-  <text x="400" y="285" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="14" font-weight="600" fill="#1A1759">通信层 chat_ds/</text>
-  <text x="400" y="307" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="12" fill="#52525B">TLS / HTTP · cJSON · 对话历史</text>
+  <!-- HTTPS 双向箭头（右侧绕行） -->
+  <path d="M 880 405 H 876 V 82 H 654" fill="none" stroke="#4B3FE3" stroke-width="1.5" marker-end="url(#ab)"/>
+  <path d="M 654 70 H 876 V 393 H 880" fill="none" stroke="#4B3FE3" stroke-width="1.5" marker-end="url(#ab)" opacity="0.35"/>
+  <text x="866" y="240" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#4B3FE3" transform="rotate(90 866 240)" text-anchor="middle">HTTPS / TLS 请求 · 流式响应</text>
 
-  <!-- 内核接口 -->
-  <rect x="40" y="364" width="640" height="64" rx="8" fill="#F7F7F8" stroke="#D4D4D8" stroke-width="1.5" stroke-dasharray="6 5"/>
-  <text x="60" y="392" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="14" font-weight="600" fill="#171717">内核接口 / 设备节点</text>
-  <text x="60" y="414" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="12" fill="#52525B">/dev/fb0 · /dev/dri · /dev/input · /sys/class/backlight</text>
+  <!-- UI ↔ chat_ds -->
+  <path d="M 555 282 V 326" fill="none" stroke="#4B3FE3" stroke-width="1.5" marker-end="url(#ab)"/>
+  <path d="M 585 326 V 286" fill="none" stroke="#4B3FE3" stroke-width="1.5" marker-end="url(#ab)" opacity="0.35"/>
+  <text x="600" y="310" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#4B3FE3">提交消息 / 轮询结果</text>
 
-  <!-- 硬件 -->
-  <rect x="40" y="452" width="640" height="64" rx="8" fill="#F7F7F8" stroke="#D4D4D8" stroke-width="1.5"/>
-  <text x="60" y="480" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="14" font-weight="600" fill="#171717">RK3568 硬件</text>
-  <text x="60" y="502" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="12" fill="#52525B">LCD 触摸屏 · 背光 · 以太网 / Wi-Fi</text>
+  <!-- 图形与库 -->
+  <rect x="60" y="510" width="250" height="76" rx="6" fill="#F7F7F8" stroke="#D4D4D8" stroke-width="1.5"/>
+  <text x="185" y="542" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#171717">LVGL 9.x</text>
+  <text x="185" y="564" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#71717A">图形框架 · 控件 · 事件</text>
+  <rect x="330" y="510" width="230" height="76" rx="6" fill="#F7F7F8" stroke="#D4D4D8" stroke-width="1.5"/>
+  <text x="445" y="542" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#171717">FreeType</text>
+  <text x="445" y="564" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#71717A">中文字体渲染</text>
+  <rect x="580" y="510" width="280" height="76" rx="6" fill="#F7F7F8" stroke="#D4D4D8" stroke-width="1.5"/>
+  <text x="720" y="542" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#171717">libjpeg-turbo</text>
+  <text x="720" y="564" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#71717A">图像解码 · mytools/ 交叉编译库</text>
 
-  <!-- 连接线 -->
-  <line x1="360" y1="452" x2="360" y2="430" stroke="#52525B" stroke-width="1.5" marker-end="url(#arrowNeutral)"/>
-  <line x1="190" y1="364" x2="190" y2="334" stroke="#52525B" stroke-width="1.5" marker-end="url(#arrowNeutral)"/>
-  <line x1="530" y1="364" x2="530" y2="334" stroke="#4B3FE3" stroke-width="1.7" marker-end="url(#arrowBrand)"/>
-  <line x1="190" y1="252" x2="190" y2="224" stroke="#52525B" stroke-width="1.5" marker-end="url(#arrowNeutral)"/>
-  <line x1="530" y1="252" x2="530" y2="224" stroke="#4B3FE3" stroke-width="1.7" marker-end="url(#arrowBrand)"/>
-  <line x1="360" y1="140" x2="360" y2="116" stroke="#4B3FE3" stroke-width="1.7" marker-end="url(#arrowBrand)"/>
+  <!-- 平台抽象层 -->
+  <rect x="40" y="616" width="820" height="100" rx="8" fill="#FFFFFF" stroke="#D4D4D8" stroke-width="1.5"/>
+  <text x="60" y="642" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#171717">平台抽象层 — src/lib/</text>
+  <rect x="60" y="654" width="470" height="50" rx="6" fill="#F7F7F8" stroke="#D4D4D8"/>
+  <text x="295" y="684" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#333333">显示后端：fbdev / DRM-KMS / Wayland / X11 / SDL2 / GLFW3（-b 切换）</text>
+  <rect x="545" y="654" width="295" height="50" rx="6" fill="#F7F7F8" stroke="#D4D4D8"/>
+  <text x="692" y="684" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#333333">输入后端：evdev 触摸事件</text>
 
-  <!-- 图例 -->
-  <rect x="40" y="533" width="12" height="12" rx="3" fill="#F2F7FF" stroke="#4B3FE3" stroke-width="1.5"/>
-  <text x="58" y="544" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="12" fill="#52525B">核心链路</text>
-  <rect x="200" y="533" width="12" height="12" rx="3" fill="#F7F7F8" stroke="#D4D4D8" stroke-width="1.5"/>
-  <text x="218" y="544" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="12" fill="#52525B">内部模块</text>
-  <rect x="340" y="533" width="12" height="12" rx="3" fill="#F7F7F8" stroke="#D4D4D8" stroke-width="1.5" stroke-dasharray="6 5"/>
-  <text x="358" y="544" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="12" fill="#52525B">系统接口</text>
-  <rect x="480" y="533" width="12" height="12" rx="3" fill="#F7F7F8" stroke="#71717A" stroke-width="1.5"/>
-  <text x="498" y="544" font-family="'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif" font-size="12" fill="#52525B">外部服务</text>
+  <!-- 内核与硬件 -->
+  <rect x="40" y="746" width="820" height="110" rx="8" fill="#FFFFFF" stroke="#D4D4D8" stroke-width="1.5"/>
+  <text x="60" y="772" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#171717">Linux 内核 / 硬件</text>
+  <rect x="60" y="784" width="340" height="56" rx="6" fill="#F7F7F8" stroke="#D4D4D8"/>
+  <text x="230" y="808" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#333333">设备节点：/dev/fb0 · /dev/dri</text>
+  <text x="230" y="828" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#333333">/dev/input/event* · sysfs backlight</text>
+  <rect x="420" y="784" width="420" height="56" rx="6" fill="#F7F7F8" stroke="#D4D4D8"/>
+  <text x="630" y="808" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#333333">RK3568 SoC（四核 A55）</text>
+  <text x="630" y="828" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#333333">LCD 触摸屏 · 嵌入式 Linux</text>
+
+  <path d="M 185 586 V 612" fill="none" stroke="#52525B" stroke-width="1.5" marker-end="url(#an)"/>
+  <path d="M 295 716 V 742" fill="none" stroke="#52525B" stroke-width="1.5" marker-end="url(#an)"/>
+  <text x="305" y="734" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#71717A">设备节点读写</text>
 </svg>
