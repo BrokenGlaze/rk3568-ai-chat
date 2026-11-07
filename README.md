@@ -25,7 +25,7 @@
 
 ## 系统架构
 
-![系统架构图](doc/architecture.svg)
+![系统架构图](docs/images/architecture.svg)
 
 自底向上分为五层：RK3568 硬件 → 内核设备节点 → 图形框架与通信层 → 应用层 → DeepSeek 云端。
 紫色标出 AI 聊天的主链路：触摸输入经 LVGL 事件进入聊天界面，由 `chat_ds` 通过 TLS 请求云端，响应经 cJSON 解析后回填到消息列表。
